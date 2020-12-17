@@ -23,15 +23,12 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         DispatchQueue.global().async {
             self.readSchedule()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.elliotable.reloadData()
             }
         }
         elliotable.delegate = self
-        DispatchQueue.main.async {
-            self.elliotable.dataSource = self
-            self.elliotable.reloadData()
-        }
+        elliotable.dataSource = self
         timetable_setting()
         
     }
@@ -45,10 +42,8 @@ class ViewController: UIViewController {
             }
         }
         elliotable.delegate = self
-        DispatchQueue.main.async {
-            self.elliotable.dataSource = self
-            self.elliotable.reloadData()
-        }
+        elliotable.dataSource = self
+        elliotable.reloadData()
         timetable_setting()
     }
 }

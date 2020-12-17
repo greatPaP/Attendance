@@ -34,7 +34,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate {
     // firebase 연동
     let db = Database.database().reference()
     var courseId: Int = 0
-    var courseDay: Int = 0
+    var courseDay: Int = 1
     // 기본 배경 값 지정 (0, 0, 0, 1) == black
     var redValue: CGFloat = 0.0
     var greenValue: CGFloat = 0.0
@@ -72,7 +72,11 @@ extension AddViewController: UIDocumentPickerDelegate, UIPickerViewDataSource {
     // 스케쥴 저장 함수
     func saveSchedule() {
         let schedule = TimeTable(courseId: "\(self.courseId)", courseName: name.text!, subName: explain.text ?? "", startTime: startTime.text!, endTime: endTime.text!, courseDay: self.courseDay, colors: [Colors(redValue: self.redValue, greenValue: self.greenValue, blueValue: self.blueValue, alphaValue: self.alphaValue)])
-        db.child("customers").child("\(self.courseId)").setValue(schedule.toDictionary)
+        if schedule.courseName == "" {
+            return
+        } else {
+            db.child("customers").child("\(self.courseId)").setValue(schedule.toDictionary)
+        }
     }
     
     // courseId를 갱신하기 위해서 사용
