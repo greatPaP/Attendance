@@ -8,6 +8,7 @@ target 'Attendance' do
   pod 'RealmSwift'
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
+  pod 'FSCalendar'
   # Pods for Attendance
 
 

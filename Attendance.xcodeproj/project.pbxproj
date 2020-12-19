@@ -18,6 +18,10 @@
 		E14603F5257A84A20042B7BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E14603F3257A84A20042B7BE /* LaunchScreen.storyboard */; };
 		E15CF4DF257ACA7500B82C1D /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CF4DE257ACA7500B82C1D /* ModifyViewController.swift */; };
 		E15CF4EF257D00A100B82C1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E15CF4EE257D00A100B82C1D /* GoogleService-Info.plist */; };
+		E160FB17258C5C8C00280BED /* StudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160FB16258C5C8C00280BED /* StudentsViewController.swift */; };
+		E160FB1A258C5D1400280BED /* DetailStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160FB19258C5D1400280BED /* DetailStudentViewController.swift */; };
+		E17DADC4258D091D0046162A /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DADC3258D091D0046162A /* Students.swift */; };
+		E17DADC7258D1F070046162A /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DADC6258D1F070046162A /* AddStudentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		E14603F6257A84A20042B7BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E15CF4DE257ACA7500B82C1D /* ModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 		E15CF4EE257D00A100B82C1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E160FB16258C5C8C00280BED /* StudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsViewController.swift; sourceTree = "<group>"; };
+		E160FB19258C5D1400280BED /* DetailStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStudentViewController.swift; sourceTree = "<group>"; };
+		E17DADC3258D091D0046162A /* Students.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
+		E17DADC6258D1F070046162A /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,10 @@
 				E14603EC257A849E0042B7BE /* ViewController.swift */,
 				E11D57FF257DFCCD00D96355 /* AddViewController.swift */,
 				E14603EE257A849E0042B7BE /* Main.storyboard */,
+				E160FB16258C5C8C00280BED /* StudentsViewController.swift */,
+				E17DADC3258D091D0046162A /* Students.swift */,
+				E17DADC6258D1F070046162A /* AddStudentViewController.swift */,
+				E160FB19258C5D1400280BED /* DetailStudentViewController.swift */,
 				E11D5802257E00F900D96355 /* TimeTable.swift */,
 				E15CF4DE257ACA7500B82C1D /* ModifyViewController.swift */,
 				E14603F1257A84A20042B7BE /* Assets.xcassets */,
@@ -223,7 +235,11 @@
 				E14603ED257A849E0042B7BE /* ViewController.swift in Sources */,
 				E15CF4DF257ACA7500B82C1D /* ModifyViewController.swift in Sources */,
 				E14603E9257A849E0042B7BE /* AppDelegate.swift in Sources */,
+				E160FB17258C5C8C00280BED /* StudentsViewController.swift in Sources */,
+				E17DADC7258D1F070046162A /* AddStudentViewController.swift in Sources */,
+				E17DADC4258D091D0046162A /* Students.swift in Sources */,
 				E14603EB257A849E0042B7BE /* SceneDelegate.swift in Sources */,
+				E160FB1A258C5D1400280BED /* DetailStudentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

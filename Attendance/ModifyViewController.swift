@@ -33,8 +33,13 @@ class ModifyViewController: UIViewController, UIPickerViewDelegate {
         updateSchedule()
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func deleteButton(_ sender: Any) {
+        deleteSchedule()
+        self.dismiss(animated: true, completion: nil)
+    }
     
     let db = Database.database().reference()
+    var courseId: Int = 99
     var courseDay: Int = 1
     // 기본 배경 값 지정 (0, 0, 0, 1) == black
     var redValue: CGFloat = 0.0
@@ -57,6 +62,11 @@ class ModifyViewController: UIViewController, UIPickerViewDelegate {
             colorButton.tintColor = detailInfo.backgroundColor
             startTime.text = detailInfo.startTime
             endTime.text = detailInfo.endTime
+            redValue = CGFloat(detailInfo.backgroundColor.redValue)
+            greenValue = CGFloat(detailInfo.backgroundColor.greenValue)
+            blueValue = CGFloat(detailInfo.backgroundColor.blueValue)
+            alphaValue = CGFloat(detailInfo.backgroundColor.alphaValue)
+            courseDay = detailInfo.courseDay.rawValue
         }
     }
 }
@@ -103,21 +113,28 @@ extension ModifyViewController: UIDocumentPickerDelegate, UIPickerViewDataSource
     
     func updateSchedule() {
         if let schedule_info = viewModel.scheduleInfo {
-            db.child("customers").child("\(schedule_info.courseId)").child("courseName").setValue(name.text)
-            db.child("customers").child("\(schedule_info.courseId)").child("subName").setValue(explain.text)
-            db.child("customers").child("\(schedule_info.courseId)").child("startTime").setValue(startTime.text)
-            db.child("customers").child("\(schedule_info.courseId)").child("endTime").setValue(endTime.text)
-            db.child("customers").child("\(schedule_info.courseId)").child("courseDay").setValue(courseDay)
-            db.child("customers").child("\(schedule_info.courseId)").child("colors").child("0").child("redValue").setValue(self.redValue)
-            db.child("customers").child("\(schedule_info.courseId)").child("colors").child("0").child("blueValue").setValue(self.blueValue)
-            db.child("customers").child("\(schedule_info.courseId)").child("colors").child("0").child("greenValue").setValue(self.greenValue)
-            db.child("customers").child("\(schedule_info.courseId)").child("colors").child("0").child("alphaValue").setValue(self.alphaValue)
+            courseId = Int(schedule_info.courseId)!
+            db.child("customers").child("\(schedule_info.courseId)").removeValue()
+            let schedule = TimeTable(courseId: "\(courseId)", courseName: name.text!, subName: explain.text ?? "", startTime: startTime.text!, endTime: endTime.text!, courseDay: self.courseDay, colors: [Colors(redValue: self.redValue, greenValue: self.greenValue, blueValue: self.blueValue, alphaValue: self.alphaValue)])
+            if schedule.courseName == "" {
+                return
+            } else {
+                db.child("customers").child("\(courseId)").setValue(schedule.toDictionary)
+            }
         }
     }
     
     func deleteSchedule() {
         if let schedule_info = viewModel.scheduleInfo {
-            print(db.child("customers").child("\(schedule_info.courseId)").child("courseName").setValue("Abel"))
+            courseId = Int(schedule_info.courseId)!
+            db.child("customers").child("\(schedule_info.courseId)").removeValue()
+            let schedule = TimeTable(courseId: "\(courseId)", courseName: " ", subName: " ", startTime: "09:00", endTime: "17:00", courseDay: 6, colors: [Colors(redValue: 0.0, greenValue: 0.0, blueValue: 0.0, alphaValue: 0.0)])
+            if schedule.courseName == "" {
+                return
+            } else {
+                db.child("customers").child("\(courseId)").setValue(schedule.toDictionary)
+            }
+            
         }
     }
 }

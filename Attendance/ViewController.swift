@@ -21,29 +21,26 @@ class ViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DispatchQueue.global().async {
-            self.readSchedule()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.elliotable.reloadData()
-            }
-        }
-        elliotable.delegate = self
+        readSchedule()
         elliotable.dataSource = self
+        elliotable.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.elliotable.reloadData()
+        }
         timetable_setting()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        readSchedule()
         DispatchQueue.global().async {
-            self.readSchedule()
+            self.elliotable.dataSource = self
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.elliotable.reloadData()
             }
         }
         elliotable.delegate = self
-        elliotable.dataSource = self
-        elliotable.reloadData()
         timetable_setting()
     }
 }
@@ -86,7 +83,7 @@ extension ViewController {
                     let decoder = JSONDecoder()
                     let customers: [TimeTable] = try decoder.decode([TimeTable].self, from: data)
                     schedule_list.append(contentsOf: customers)
-                    
+                    self.scheduleList2 = []
                     for item in 0...schedule_list.count-1{
                         let event = ElliottEvent(courseId: schedule_list[item].courseId, courseName: schedule_list[item].courseName, subName: schedule_list[item].subName, courseDay: ElliotDay.init(rawValue: schedule_list[item].courseDay)!, startTime: schedule_list[item].startTime, endTime: schedule_list[item].endTime, backgroundColor: UIColor(displayP3Red: schedule_list[item].colors[0].redValue, green: schedule_list[item].colors[0].greenValue, blue: schedule_list[item].colors[0].blueValue, alpha: schedule_list[item].colors[0].alphaValue))
                         self.scheduleList2.append(event)
@@ -97,6 +94,8 @@ extension ViewController {
             }
         }
     }
+    
+    
 }
 
 extension ViewController: ElliotableDataSource {
