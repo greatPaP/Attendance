@@ -37,7 +37,7 @@ class StudentsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailInfo" {
             let vc = segue.destination as? DetailStudentViewController
-//            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalPresentationStyle = .fullScreen
             if let index = sender as? Int {
                 let studentInfo = viewModel.studentInfo(at: index)
                 vc?.viewModel.update(model: studentInfo)

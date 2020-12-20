@@ -16,6 +16,9 @@ class DetailStudentViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var classTimeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -39,7 +42,7 @@ extension DetailStudentViewController: FSCalendarDelegate, FSCalendarDataSource,
     func updateUI() {
         if let studentInfo = viewModel.studentInfo {
             nameLabel.text = studentInfo.name
-            ageLabel.text = "\(studentInfo.age)"
+            ageLabel.text = "\(studentInfo.age) 살"
             subjectLabel.text = studentInfo.subject
             classTimeLabel.text = studentInfo.classTime
             addressLabel.text = studentInfo.address
