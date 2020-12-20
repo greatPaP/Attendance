@@ -11,7 +11,7 @@ import Firebase
 
 struct StudentInfo: Codable {
     let name: String
-    let age: Int
+    let age: String
     let subject: String
     let classTime: String
     let address: String
@@ -19,7 +19,7 @@ struct StudentInfo: Codable {
     let additionalClass: [String]
     
     
-    init(name: String, age: Int, subject: String,classTime: String, address: String, mainClass: [String], additionalClass: [String]) {
+    init(name: String, age: String, subject: String,classTime: String, address: String, mainClass: [String], additionalClass: [String]) {
         self.name = name
         self.age = age
         self.subject = subject
@@ -28,7 +28,6 @@ struct StudentInfo: Codable {
         self.mainClass = mainClass
         self.additionalClass = additionalClass
     }
-    
     var toDictionary: [String: Any] {
         let dict: [String: Any] = ["name": name, "age": age, "subject": subject, "classTime": classTime, "address": address, "mainClass": mainClass, "additionalClass": additionalClass]
         return dict
@@ -36,11 +35,12 @@ struct StudentInfo: Codable {
 }
 
 class StudentViewModel {
-    let studentList: [StudentInfo] = [
-    ]
-    
+    var studentList: [StudentInfo] = []
+
+    var numOfStudentList: Int {
+        return studentList.count
+    }
     func studentInfo(at index: Int) -> StudentInfo {
         return studentList[index]
     }
-    
 }

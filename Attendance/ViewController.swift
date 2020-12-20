@@ -48,6 +48,7 @@ class ViewController: UIViewController {
 extension ViewController: ElliotableDelegate {
     
     func elliotable(elliotable: Elliotable, didSelectCourse selectedCourse: ElliottEvent) {
+        print("showDetail peroform Segue")
         performSegue(withIdentifier: "showDetail", sender: selectedCourse)
     }
     
@@ -57,6 +58,7 @@ extension ViewController: ElliotableDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
+            print("viewcontroller segue prepare")
             let vc = segue.destination as? ModifyViewController
             vc?.modalPresentationStyle = .fullScreen
             if let schedule = sender as? ElliottEvent {

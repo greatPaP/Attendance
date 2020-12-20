@@ -57,6 +57,7 @@ class ModifyViewController: UIViewController, UIPickerViewDelegate {
     }
     func updateUI() {
         if let detailInfo = viewModel.scheduleInfo {
+            print("modifyupdateUI")
             name.text = detailInfo.courseName
             explain.text = detailInfo.subName
             colorButton.tintColor = detailInfo.backgroundColor
