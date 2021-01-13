@@ -15,8 +15,8 @@ struct StudentInfo: Codable {
     let subject: String
     let classTime: String
     let address: String
-    let mainClass: [String]
-    let additionalClass: [String]
+    var mainClass: [String]
+    var additionalClass: [String]
     
     
     init(name: String, age: String, subject: String,classTime: String, address: String, mainClass: [String], additionalClass: [String]) {

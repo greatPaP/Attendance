@@ -10,7 +10,7 @@ import FSCalendar
 
 class DetailStudentViewController: UIViewController {
     let viewModel = DetailStudentModel()
-    
+    var studentID: Int = 0
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
@@ -26,15 +26,43 @@ class DetailStudentViewController: UIViewController {
         return formatter
     }()
     @IBOutlet weak var calenderView: FSCalendar!
-    var events: [String] = ["2020-12-24", "2020-12-16"]
-    var otherEvents: [String] = ["2020-12-24", "2020-12-18"]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.calenderSetting()
+            self.calenderView.delegate = self
+            self.calenderView.dataSource = self
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                self.calenderView.reloadData()
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        calenderSetting()
-        calenderView.delegate = self
-        calenderView.dataSource = self
+        DispatchQueue.main.async {
+            self.calenderSetting()
+            self.calenderView.delegate = self
+            self.calenderView.dataSource = self
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                self.calenderView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addevent" {
+            let vc = segue.destination as? AddEventViewController
+            vc?.studentID = studentID
+            if let date = sender as? Date {
+                vc?.dateString = formatter.string(from: date)
+            }
+        } else {
+            return
+        }
+
     }
 }
 
@@ -104,7 +132,7 @@ extension DetailStudentViewController: FSCalendarDelegate, FSCalendarDataSource,
     
     // 날짜 선택시
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(formatter.string(from: date) + " 선택")
+        performSegue(withIdentifier: "addevent", sender: date)
     }
     
     // Event 별 컬러 변경 (날짜 하단)

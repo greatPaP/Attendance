@@ -22,6 +22,7 @@
 		E160FB1A258C5D1400280BED /* DetailStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160FB19258C5D1400280BED /* DetailStudentViewController.swift */; };
 		E17DADC4258D091D0046162A /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DADC3258D091D0046162A /* Students.swift */; };
 		E17DADC7258D1F070046162A /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17DADC6258D1F070046162A /* AddStudentViewController.swift */; };
+		E188EE7125AD9FE50058134A /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188EE7025AD9FE50058134A /* AddEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E160FB19258C5D1400280BED /* DetailStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStudentViewController.swift; sourceTree = "<group>"; };
 		E17DADC3258D091D0046162A /* Students.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
 		E17DADC6258D1F070046162A /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
+		E188EE7025AD9FE50058134A /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				E160FB16258C5C8C00280BED /* StudentsViewController.swift */,
 				E17DADC3258D091D0046162A /* Students.swift */,
 				E17DADC6258D1F070046162A /* AddStudentViewController.swift */,
+				E188EE7025AD9FE50058134A /* AddEventViewController.swift */,
 				E160FB19258C5D1400280BED /* DetailStudentViewController.swift */,
 				E11D5802257E00F900D96355 /* TimeTable.swift */,
 				E15CF4DE257ACA7500B82C1D /* ModifyViewController.swift */,
@@ -237,6 +240,7 @@
 				E14603E9257A849E0042B7BE /* AppDelegate.swift in Sources */,
 				E160FB17258C5C8C00280BED /* StudentsViewController.swift in Sources */,
 				E17DADC7258D1F070046162A /* AddStudentViewController.swift in Sources */,
+				E188EE7125AD9FE50058134A /* AddEventViewController.swift in Sources */,
 				E17DADC4258D091D0046162A /* Students.swift in Sources */,
 				E14603EB257A849E0042B7BE /* SceneDelegate.swift in Sources */,
 				E160FB1A258C5D1400280BED /* DetailStudentViewController.swift in Sources */,

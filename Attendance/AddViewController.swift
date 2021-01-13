@@ -71,7 +71,7 @@ extension AddViewController: UIDocumentPickerDelegate, UIPickerViewDataSource {
 
     // 스케쥴 저장 함수
     func saveSchedule() {
-        let schedule = TimeTable(courseId: "\(self.courseId)", courseName: name.text!, subName: explain.text ?? "", startTime: startTime.text!, endTime: endTime.text!, courseDay: self.courseDay, colors: [Colors(redValue: self.redValue, greenValue: self.greenValue, blueValue: self.blueValue, alphaValue: self.alphaValue)])
+        let schedule = TimeTable(courseId: "\(self.courseId)", courseName: name.text!, subName: explain.text ?? "", startTime: startTime.text!, endTime: endTime.text!,courseDay: self.courseDay, colors: [Colors(redValue: self.redValue, greenValue: self.greenValue, blueValue: self.blueValue, alphaValue: self.alphaValue)])
         if schedule.courseName == "" {
             return
         } else {
